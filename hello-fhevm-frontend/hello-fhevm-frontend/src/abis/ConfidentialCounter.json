@@ -1,0 +1,92 @@
+{
+	"abi": [
+	{
+		"inputs": [
+			{
+				"internalType": "euint256",
+				"name": "value",
+				"type": "bytes32"
+			}
+		],
+		"name": "isEqual",
+		"outputs": [
+			{
+				"internalType": "ebool",
+				"name": "",
+				"type": "bytes32"
+			}
+		],
+		"stateMutability": "nonpayable",
+		"type": "function"
+	},
+	{
+		"inputs": [
+			{
+				"internalType": "euint256",
+				"name": "value",
+				"type": "bytes32"
+			}
+		],
+		"name": "isNotEqual",
+		"outputs": [
+			{
+				"internalType": "ebool",
+				"name": "",
+				"type": "bytes32"
+			}
+		],
+		"stateMutability": "nonpayable",
+		"type": "function"
+	},
+	{
+		"inputs": [
+			{
+				"internalType": "euint256",
+				"name": "_initial",
+				"type": "bytes32"
+			}
+		],
+		"stateMutability": "nonpayable",
+		"type": "constructor"
+	},
+	{
+		"inputs": [
+			{
+				"internalType": "euint256",
+				"name": "_newValue",
+				"type": "bytes32"
+			}
+		],
+		"name": "updateCounter",
+		"outputs": [],
+		"stateMutability": "nonpayable",
+		"type": "function"
+	},
+	{
+		"inputs": [],
+		"name": "getEncryptedCounter",
+		"outputs": [
+			{
+				"internalType": "euint256",
+				"name": "",
+				"type": "bytes32"
+			}
+		],
+		"stateMutability": "view",
+		"type": "function"
+	},
+	{
+		"inputs": [],
+		"name": "protocolId",
+		"outputs": [
+			{
+				"internalType": "uint256",
+				"name": "",
+				"type": "uint256"
+			}
+		],
+		"stateMutability": "pure",
+		"type": "function"
+	}
+]
+}
