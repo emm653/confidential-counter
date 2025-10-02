@@ -1,0 +1,10 @@
+{
+  "files": {
+    "main.js": "/confidential-counter/static/js/main.f2024990.js",
+    "index.html": "/confidential-counter/index.html",
+    "main.f2024990.js.map": "/confidential-counter/static/js/main.f2024990.js.map"
+  },
+  "entrypoints": [
+    "static/js/main.f2024990.js"
+  ]
+}
