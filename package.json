@@ -24,6 +24,9 @@
   "homepage": "https://github.com/emm653/confidential-counter#readme",
   "dependencies": {
     "@fhevm/solidity": "^0.8.0",
-    "fhevm": "^0.6.2"
+    "@zama-fhe/relayer-sdk": "^0.2.0",
+    "ethers": "^6.15.0",
+    "fhevm": "^0.6.2",
+    "gh-pages": "^6.3.0"
   }
 }
