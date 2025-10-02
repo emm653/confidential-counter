@@ -1,0 +1,29 @@
+{
+  "name": "confidential-counter",
+  "version": "1.0.0",
+  "description": "Beginner-friendly “Hello FHEVM” dApp demonstrating a privacy-preserving encrypted counter on Zama FHEVM. Includes Solidity contract, simple frontend, and step-by-step tutorial for reproducible learning of confidential applications.",
+  "main": "index.js",
+  "directories": {
+    "doc": "docs",
+    "test": "test"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/emm653/confidential-counter.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "commonjs",
+  "bugs": {
+    "url": "https://github.com/emm653/confidential-counter/issues"
+  },
+  "homepage": "https://github.com/emm653/confidential-counter#readme",
+  "dependencies": {
+    "@fhevm/solidity": "^0.8.0",
+    "fhevm": "^0.6.2"
+  }
+}
