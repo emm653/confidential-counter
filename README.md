@@ -1,153 +1,70 @@
-Confidential Counter – README / Tutorial
-Overview
+# Getting Started with Create React App
 
-This project is a frontend dApp built with React and ethers.js v6.
-It interacts directly with the deployed Confidential Counter smart contract on-chain.
+This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
-Users can connect their MetaMask wallet.
+## Available Scripts
 
-Enter a number and click Update Counter.
+In the project directory, you can run:
 
-The dApp calls the updateCounter(bytes32 _newValue) function on the smart contract.
+### `npm start`
 
-The dApp can also call getEncryptedCounter() to fetch the encrypted counter value.
+Runs the app in the development mode.\
+Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
 
-Features
+The page will reload when you make changes.\
+You may also see any lint errors in the console.
 
-Wallet connection via MetaMask (EIP-1193 provider).
+### `npm test`
 
-On-chain transaction: securely updates the counter with an encrypted value.
+Launches the test runner in the interactive watch mode.\
+See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
 
-View encrypted counter directly from the contract.
+### `npm run build`
 
-Prerequisites
+Builds the app for production to the `build` folder.\
+It correctly bundles React in production mode and optimizes the build for the best performance.
 
-Node.js >= 18.x
+The build is minified and the filenames include the hashes.\
+Your app is ready to be deployed!
 
-npm >= 9.x
+See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
 
-MetaMask browser extension installed
+### `npm run eject`
 
-Some test ETH on the network where the contract is deployed
+**Note: this is a one-way operation. Once you `eject`, you can't go back!**
 
-Setup
+If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
 
-Clone the repository
+Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
 
-git clone <your-repo-url>
-cd confidential-counter
+You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
 
+## Learn More
 
-Install dependencies
+You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
 
-npm install
+To learn React, check out the [React documentation](https://reactjs.org/).
 
+### Code Splitting
 
-Start development server
+This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
 
-npm start
+### Analyzing the Bundle Size
 
+This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
 
-App runs on http://localhost:3000.
+### Making a Progressive Web App
 
-Smart Contract
+This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
 
-Contract Address:
+### Advanced Configuration
 
-0x91C5a918a9f056ce9596959e5ab15fFA474a73ff
+This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
 
+### Deployment
 
-ABI (relevant parts)
+This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
 
-[
-  {
-    "inputs":[{"internalType":"euint256","name":"_newValue","type":"bytes32"}],
-    "name":"updateCounter",
-    "outputs":[],
-    "stateMutability":"nonpayable",
-    "type":"function"
-  },
-  {
-    "inputs":[],
-    "name":"getEncryptedCounter",
-    "outputs":[{"internalType":"euint256","name":"","type":"bytes32"}],
-    "stateMutability":"view",
-    "type":"function"
-  }
-]
+### `npm run build` fails to minify
 
-How It Works
-1. Connect Wallet
-
-The dApp requests wallet connection via window.ethereum.
-
-const provider = new ethers.BrowserProvider(window.ethereum);
-const signer = await provider.getSigner();
-
-2. Update Counter
-
-When a user enters a number and clicks Update Counter:
-
-The number is converted to a bytes32 value.
-
-Calls the smart contract function updateCounter(bytes32) using the connected wallet.
-
-MetaMask pops up for the user to confirm.
-
-const encryptedValue = ethers.zeroPadValue(
-  ethers.toBeHex(inputValue), 32
-);
-await contract.updateCounter(encryptedValue);
-
-3. Get Encrypted Counter
-
-To display the encrypted counter value:
-
-const value = await contract.getEncryptedCounter();
-setCounter(value);
-
-Usage
-
-Connect MetaMask to the network where the contract is deployed.
-
-Enter a number in the input box.
-
-Click Update Counter → confirm in MetaMask.
-
-The frontend will show the encrypted counter value (as bytes32).
-
-Deployment (Optional)
-
-To deploy on GitHub Pages:
-
-Install gh-pages:
-
-npm install gh-pages --save-dev
-
-
-In package.json:
-
-"homepage": "https://<username>.github.io/<repo-name>",
-"scripts": {
-  "predeploy": "npm run build",
-  "deploy": "gh-pages -d build"
-}
-
-
-Deploy:
-
-npm run deploy
-
-Notes
-
-This is a live smart contract interaction — not a stub.
-
-Contract methods available:
-
-updateCounter(bytes32 _newValue) → Updates counter.
-
-getEncryptedCounter() → Reads encrypted value.
-
-isEqual(value), isNotEqual(value) → Comparison functions.
-
-Ensure you are on the correct network and the contract address matches.
+This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)

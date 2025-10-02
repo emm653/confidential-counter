@@ -1,10 +1,15 @@
 {
   "files": {
-    "main.js": "/confidential-counter/static/js/main.f2024990.js",
+    "main.css": "/confidential-counter/static/css/main.f855e6bc.css",
+    "main.js": "/confidential-counter/static/js/main.046aa87f.js",
+    "static/js/453.f2bf39c7.chunk.js": "/confidential-counter/static/js/453.f2bf39c7.chunk.js",
     "index.html": "/confidential-counter/index.html",
-    "main.f2024990.js.map": "/confidential-counter/static/js/main.f2024990.js.map"
+    "main.f855e6bc.css.map": "/confidential-counter/static/css/main.f855e6bc.css.map",
+    "main.046aa87f.js.map": "/confidential-counter/static/js/main.046aa87f.js.map",
+    "453.f2bf39c7.chunk.js.map": "/confidential-counter/static/js/453.f2bf39c7.chunk.js.map"
   },
   "entrypoints": [
-    "static/js/main.f2024990.js"
+    "static/css/main.f855e6bc.css",
+    "static/js/main.046aa87f.js"
   ]
 }

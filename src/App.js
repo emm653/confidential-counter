@@ -1,13 +1,11 @@
-import React from 'react';
-import Counter from './Counter'; 
-import ConfidentialCounterABI from './abis/ConfidentialCounter.json';
-console.log("ABI Loaded:", ConfidentialCounterABI);
-
+import './App.css';
+import React from "react";
+import Counter from "./components/Counter";
 
 function App() {
   return (
-    <div>
-      <h1>Confidential Counter App</h1>
+    <div className="App">
+      <h1>Hello FHEVM!</h1>
       <Counter />
     </div>
   );
