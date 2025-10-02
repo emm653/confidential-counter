@@ -4,8 +4,77 @@
         <h4>OFFICIAL SITE</h4>    
     </head>
     <body>
-        <srcipt src = "hello-fhevm-frontend/hello-fhevm-frontend/src/components/Counter.js">
+        <script>
+        import "confidential-counter/hello-fhevm-frontend/hello-fhevm-frontend/src/styles/Counter.css";
+        import React, { useState, useEffect } from "react";
+        import { ethers } from "ethers";
+        import ConfidentialCounterABI from "confidential-counter/hello-fhevm-frontend/hello-fhevm-frontend/src/abis/ConfidentialCounter.json";
+        import { Relayer } from "@zama-fhe/relayer-sdk";
+        
+        const CONTRACT_ADDRESS = "0x91C5a918a9f056ce9596959e5ab15fFA474a73ff";
+        const RELAYER_URL = "https://relayer.testnet.zama.cloud";
+        
+        
+        function Counter() {
+          const [encryptedCounter, setEncryptedCounter] = useState("");
+          const [inputValue, setInputValue] = useState("");
+          const [relayer, setRelayer] = useState(null);
+        
+          useEffect(() => {
+            const initRelayer = async () => {
+              const r = new Relayer(RELAYER_URL);
+              setRelayer(r);
+            };
+            initRelayer();
+          }, []);
+        
+          async function getCounter() {
+            if (!window.ethereum) return alert("Install MetaMask!");
+            const provider = new ethers.BrowserProvider(window.ethereum);
+            const contract = new ethers.Contract(CONTRACT_ADDRESS, ConfidentialCounterABI.abi, provider);
+        
+            const value = await contract.getEncryptedCounter();
+            setEncryptedCounter(value.toString());
+          }
+        
+          async function updateCounter() {
+            if (!window.ethereum) return alert("Install MetaMask!");
+            const provider = new ethers.BrowserProvider(window.ethereum);
+            await provider.send("eth_requestAccounts", []);
+            const signer = await provider.getSigner();
+            const contract = new ethers.Contract(CONTRACT_ADDRESS, ConfidentialCounterABI.abi, signer);
+        
+            if (!relayer) return alert("Relayer not initialized!");
+        
             
-        </srcipt>
+            const encrypted = await relayer.encrypt(inputValue, "uint256");
+        
+            console.log("Encrypted value:", encrypted);
+        
+            const tx = await contract.updateCounter(encrypted);
+            await tx.wait();
+            alert("Counter updated confidentially!");
+          }
+        
+          return (
+            <div>
+              <h2>Confidential Counter</h2>
+              <p>Encrypted Counter Value: {encryptedCounter}</p>
+        
+              <input
+                type="number"
+                placeholder="Enter new value"
+                value={inputValue}
+                onChange={(e) => setInputValue(e.target.value)}
+              />
+        
+              <button onClick={updateCounter}>Update Counter Confidentially</button>
+              <button onClick={getCounter}>Get Encrypted Counter</button>
+            </div>
+          );
+        }
+        
+        export default Counter;
+    </script>    
     </body>
 </html>
